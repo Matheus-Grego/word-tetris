@@ -1,0 +1,402 @@
+body {
+  background-color: #141414;
+  margin: 0;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: "Modeseven";
+  src: url("font/Modeseven-L3n5.ttf") format("truetype");
+}
+
+header {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 60px;
+}
+
+.pontos {
+  display: flex;
+  color: #149414;
+  font-family: "Press Start 2P", monospace;
+}
+
+.pontos h2 {
+  color: #149414;
+  margin: 0;
+  font-family: "Press Start 2P", monospace;
+}
+
+.pontos span {
+  font-family: "Press Start 2P", monospace;
+  color: #149414;
+  width: 20px;
+}
+
+header a {
+  font-family: "Press Start 2P", monospace;
+  text-decoration: none;
+  color: #149414;
+  font-size: 20px;
+  transition: color 1s ease;
+}
+
+#conteudo {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#conteudo h1 {
+  color: #149414;
+  margin: 0;
+  font-family: "Press Start 2P", monospace;
+  font-weight: 200;
+}
+
+#terminal {
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  height: 600px;
+  max-height: 600px;
+  width: 100%;
+  max-width: 600px;
+  border: 3px solid #149414;
+  align-items: flex-end;
+  overflow: auto;
+}
+#quadrado {
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  height: 600px;
+  max-height: 600px;
+  width: 600px;
+  max-width: 600px;
+  position: relative;
+}
+
+.bouncing-text {
+  position: relative;
+  display: flex;
+  transition: color 1s ease;
+  font-family: "Press Start 2P", monospace;
+  font-weight: 200;
+  font-size: 40px;
+  color: #149414;
+  margin-bottom: 5px;
+}
+
+.btn {
+  background-color: #149414;
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  color: black;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 150px;
+  height: 60px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: inset -2px 2px 1px 2px #5a5a5a, inset -2px -2px 1px 1px #083808,
+    inset 2px 0px 1px 1px #083808;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: var(--y); /* Inicia com o valor padrão 0 */
+  left: var(--x);
+  transform: translate(-50%, -50%); /* Inicia com o valor padrão 0 */
+  width: var(--w, 0);
+  height: var(--h, 0);
+  border-radius: 50%;
+  background: #941494;
+  transition: width 0.6s, height 0.6s;
+}
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+.btn:hover::before {
+  opacity: 1;
+  width: 300px;
+  height: 300px;
+}
+
+.btn:active {
+  box-shadow: -2px 2px 1px 2px #5a5a5a, -2px -2px 1px 1px #083808,
+    2px 0px 1px 1px #083808;
+}
+
+.inacessivel {
+  pointer-events: none;
+  filter: blur(5px); /* Aplica um desfoque à div */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-15px);
+  }
+
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+.c,
+.r,
+.a,
+.c2,
+.k,
+.t,
+.h,
+.e,
+.c3,
+.o,
+.d,
+.e2 {
+  animation: bounce 2s ease infinite;
+  animation-delay: calc(0.2s * var(--index));
+}
+
+.space {
+  width: 20px;
+  /* Ajuste a largura conforme necessário */
+}
+
+.bouncing-text > div {
+  --index: 0;
+}
+
+.bouncing-text > div:nth-child(1) {
+  --index: 1;
+}
+
+.bouncing-text > div:nth-child(2) {
+  --index: 2;
+}
+
+.bouncing-text > div:nth-child(3) {
+  --index: 3;
+}
+
+.bouncing-text > div:nth-child(4) {
+  --index: 4;
+}
+
+.bouncing-text > div:nth-child(5) {
+  --index: 5;
+}
+
+.bouncing-text > div:nth-child(6) {
+  --index: 6;
+}
+
+.bouncing-text > div:nth-child(7) {
+  --index: 7;
+}
+
+.bouncing-text > div:nth-child(8) {
+  --index: 8;
+}
+
+.bouncing-text > div:nth-child(9) {
+  --index: 9;
+}
+
+.bouncing-text > div:nth-child(10) {
+  --index: 10;
+}
+
+.bouncing-text > div:nth-child(11) {
+  --index: 11;
+}
+
+.bouncing-text > div:nth-child(12) {
+  --index: 12;
+}
+
+.bouncing-text > div:nth-child(13) {
+  --index: 13;
+}
+
+.bouncing-text > div:nth-child(14) {
+  --index: 14;
+}
+
+.bouncing-text > div:nth-child(15) {
+  --index: 15;
+}
+
+.shake-animation {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.letter:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.letter:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.letter:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.letter:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.letter:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.letter:nth-child(6) {
+  animation-delay: 1s;
+}
+
+.letter:nth-child(7) {
+  animation-delay: 1.2s;
+}
+
+.letter:nth-child(8) {
+  animation-delay: 1.4s;
+}
+
+.letter:nth-child(9) {
+  animation-delay: 1.6s;
+}
+
+.letter:nth-child(10) {
+  animation-delay: 1.8s;
+}
+
+.letter:nth-child(11) {
+  animation-delay: 2s;
+}
+
+.letter:nth-child(12) {
+  animation-delay: 2.2s;
+}
+
+.letter:nth-child(13) {
+  animation-delay: 2.4s;
+}
+
+.letter:nth-child(14) {
+  animation-delay: 2.6s;
+}
+
+.space {
+  width: 30px;
+  /* Ajuste conforme necessário para espaçamento entre as palavras */
+}
+
+#codigos {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.textos {
+  flex: 1;
+  min-width: 0;
+  min-height: 20px;
+  font-size: 20px;
+  color: #149414;
+  text-align: center;
+  line-height: 2;
+  font-family: "Modeseven", monospace;
+  font-weight: 200;
+  padding: 5px;
+  user-select: none;
+}
+
+.linha-comando {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+div.linha-comando span {
+  margin: 20px 5px 0 50px;
+  color: blanchedalmond;
+  font-family: "Modeseven", monospace;
+  font-size: 30px;
+}
+
+#comando {
+  flex-grow: 1; /* Ajuste a largura do comando conforme necessário */
+  background-color: #141414;
+  color: blanchedalmond;
+  margin-top: 10px;
+  border-left: 7px solid white;
+  padding: 5px;
+  box-sizing: border-box;
+  outline: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  animation: piscar 2s infinite;
+  font-size: 20px;
+  font-family: "Modeseven", monospace;
+  font-weight: 200;
+}
+
+@keyframes piscar {
+  0%,
+  100% {
+    border-color: white;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
