@@ -3,6 +3,7 @@
     .user-welcome{
         color: #149414;
         font-family: 'Press Start 2P', monospace;
+        padding: 5px;
     }
 </style>
 

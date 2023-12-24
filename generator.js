@@ -1,77 +1,34 @@
-const letras = [
-  "a",
-  "A",
-  "b",
-  "B",
-  "c",
-  "C",
-  "d",
-  "D",
-  "e",
-  "E",
-  "f",
-  "F",
-  "g",
-  "G",
-  "h",
-  "H",
-  "i",
-  "j",
-  "J",
-  "k",
-  "K",
-  "L",
-  "m",
-  "M",
-  "n",
-  "N",
-  "o",
-  "O",
-  "p",
-  "P",
-  "q",
-  "Q",
-  "r",
-  "R",
-  "s",
-  "S",
-  "t",
-  "T",
-  "u",
-  "U",
-  "v",
-  "V",
-  "w",
-  "W",
-  "x",
-  "X",
-  "y",
-  "Y",
-  "z",
-  "Z",
-  "!",
-  "#",
-  "$",
-  "%",
-  "*",
-  "?",
-  "ç",
-  "Ç",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-];
+class CharacterGenerator {
+  get UppercaseLetter() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
+
+  get LowercaseLetter() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  }
+
+  get RandomNumber() {
+    return Math.floor(Math.random() * 9) + 1;
+  }
+}
 
 function generateCode(size) {
   let code = "";
+  const generator = new CharacterGenerator();
+  console.log(size);
   for (let a = 0; a < size; a++) {
-    code += letras[parseInt(Math.random() * letras.length)];
+    const randomIndex = Math.floor(Math.random() * 3);
+    switch (randomIndex) {
+      case 0:
+        code += generator.UppercaseLetter;
+        break;
+      case 1:
+        code += generator.LowercaseLetter;
+        break;
+      case 2:
+        code += generator.RandomNumber;
+        break;
+    }
   }
   return code;
 }
@@ -82,9 +39,8 @@ let i = 1; //indicador da coluna "cod"
 const saveMatch = (points) => {
   if (points != null) {
     let sendData = new FormData();
-
+    document.getElementById("comando").value = "";
     sendData.append("points", points);
-
     fetch("./src/save_match.php", {
       method: "POST",
       body: sendData,
@@ -96,15 +52,13 @@ const saveMatch = (points) => {
   }
 };
 
-
 function populateDiv() {
-
   var desfoqueterminal = document.getElementById("terminal");
   var botao = document.querySelector(".btn");
   desfoqueterminal.classList.remove("inacessivel");
   botao.style.display = "none";
-
-//verifica e popula a coluna se estiver vazia, e se o usuário não conseguir esvaziar mais nenhuma com as 10 cols populadas (chegar até cod11), game over
+  console.log(CharacterGenerator.UppercaseLetter);
+  //verifica e popula a coluna se estiver vazia, e se o usuário não conseguir esvaziar mais nenhuma com as 10 cols populadas (chegar até cod11), game over
   if (i <= 11) {
     if (i == 11) {
       alert(`Game Over, você fez ${pontos}`);
@@ -119,7 +73,6 @@ function populateDiv() {
     setTimeout(populateDiv, Math.floor(Math.random() * 1000 + 5000));
   }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var comandoInput = document.getElementById("comando");
@@ -154,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
               }
             }
-            
+
             //animação da tela
             document.body.classList.add("shake-animation");
             document.querySelector(".points-display").innerHTML = pontos;
