@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class CharacterGenerator {
   get UppercaseLetter() {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
@@ -12,10 +11,6 @@ class CharacterGenerator {
     return Math.floor(Math.random() * 9) + 1;
   }
 }
-=======
-//tanto letras em maiusculo e minusculo, quando numeros e caractéres especiais
-const letras = ["a","A","b","B","c","C","d","D","e","E","f","F","g","G","h","H","i","j","J","k","K","L","m","M","n","N","o","O","p","P","q","Q","r","R","s","S","t","T","u","U","v","V","w","W","x","X","y","Y","z","Z","!","#","$","%","*","?","ç","Ç","1","2","3","4","5","6","7","8","9",];
->>>>>>> 64138b959ad32151fec0a335d4b723e877ccf44c
 
 function generateCode(size) {
   let code = "";
